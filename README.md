@@ -1,7 +1,10 @@
 Backhand
 ========
 
-This is a super-simple version of the `bcvi` tool.
+This is a super-simple version of the `bcvi` tool. You'll need to have web.py
+installed:
+
+    sudo easy_install web.py
 
 The `server.py` script runs a HTTP server on the given port. This server
 responds to POST requests on /vi and runs Vim with the supplied `sftp://` URL.
