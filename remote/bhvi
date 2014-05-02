@@ -1,0 +1,16 @@
+#!/bin/bash
+set -eu
+
+if [[ $# -ne 1 ]]; then
+    echo "Usage: $0 <file>"
+    exit 1
+fi
+
+file="$1"
+path=`readlink -f $file`
+[[ -d $path ]] && path="$path/"
+
+host=`echo "$SSH_CONNECTION" | cut -d' ' -f3`
+url="sftp://$USER@$host/$path"
+
+curl -durl="$url" http://localhost:2398/vi
